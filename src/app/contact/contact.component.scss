@@ -7,3 +7,30 @@
   background-color: grey;
   width: 40%;
 }
+
+.accent {
+  color: #fbc02d;
+}
+
+* {
+  color: white;
+}
+
+.center {
+  text-align: center;
+}
+
+.circle {
+  margin: 0 auto;
+  border-radius: 100%;
+  width: 40%;
+  aspect-ratio: 1 / 1;
+  background-color: #1a237e;
+  display: flex;
+}
+
+.icon {
+  position: relative;
+  margin: auto;
+  transform: scale(3);
+}

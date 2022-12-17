@@ -8,6 +8,29 @@
   width: 40%;
 }
 
+.center {
+  text-align: center;
+}
+
 button {
   width: 100%;
+}
+
+* {
+  color: white;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.accent {
+  color: #fbc02d;
+}
+
+.msg-error {
+  color: #d8000c;
+  background-color: #ffe8e8;
+  padding: 8px;
+  border-radius: 2px;
 }

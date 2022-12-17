@@ -7,3 +7,38 @@
   background-color: grey;
   width: 40%;
 }
+
+* {
+  color: white;
+}
+
+.accent {
+  color: #fbc02d;
+}
+
+.center {
+  text-align: center;
+}
+
+.circle {
+  margin: 0 auto;
+  border-radius: 100%;
+  width: 40%;
+  aspect-ratio: 1 / 1;
+  background-color: #1a237e;
+  display: flex;
+}
+
+#ravenclaw {
+  background-image: url(../../assets/ravenclaw.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  border-radius: 100%;
+  border: 10px solid white;
+}
+
+p {
+  font-size: 1.1rem;
+}

@@ -1,58 +1,88 @@
 <br />
 <mat-card-title>
-  <h1 class="title">{{ title }}</h1>
+  <h1 class="title accent">{{ title }}</h1>
 </mat-card-title>
 <br />
 <mat-card-content class="mat-wrapper">
   <!-- left card -->
   <mat-card class="mat-card mat-elevation-z8">
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
-      voluptas dolor, blanditiis nam aspernatur eaque facilis asperiores odit
-      rem! Placeat blanditiis, illo quia harum libero adipisci illum facere
-      labore autem!
-    </p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
-      voluptas dolor, blanditiis nam aspernatur eaque facilis asperiores odit
-      rem! Placeat blanditiis, illo quia harum libero adipisci illum facere
-      labore autem!
-    </p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
-      voluptas dolor, blanditiis nam aspernatur eaque facilis asperiores odit
-      rem! Placeat blanditiis, illo quia harum libero adipisci illum facere
-      labore autem!
-    </p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
-      voluptas dolor, blanditiis nam aspernatur eaque facilis asperiores odit
-      rem! Placeat blanditiis, illo quia harum libero adipisci illum facere
-      labore autem!
-    </p>
-    <button mat-raised-button color="accent" class="mat-elevation-z8">
-      Calculate
-    </button>
+    <form
+      [formGroup]="calculatorForm"
+      (ngSubmit)="calculate(); calculatorForm.reset()"
+    >
+      <br />
+      <!-- loan total field -->
+      <mat-form-field appearance="fill">
+        <input
+          type="text"
+          name="txtTotal"
+          id="txtTotal"
+          matInput
+          placeholder="Loan Total"
+          formControlName="loanTotal"
+        />
+      </mat-form-field>
+      <div *ngIf="form.loanTotal.errors && form.loanTotal.touched">
+        <div class="msg-error">Please enter a numeric value.</div>
+      </div>
+      <br />
+      <!-- interest rate field -->
+      <mat-form-field appearance="fill">
+        <input
+          type="text"
+          name="txtInterest"
+          id="txtInterest"
+          matInput
+          placeholder="Interest Rate %"
+          formControlName="interestRate"
+        />
+      </mat-form-field>
+      <div *ngIf="form.interestRate.errors && form.interestRate.touched">
+        <div class="msg-error">Enter percentage as whole number.</div>
+      </div>
+      <br />
+      <!-- total months field -->
+      <mat-form-field appearance="fill">
+        <input
+          type="text"
+          name="txtMonths"
+          id="txtMonths"
+          matInput
+          placeholder="Number of Years "
+          formControlName="yearTotal"
+        />
+      </mat-form-field>
+      <div *ngIf="form.yearTotal.errors && form.yearTotal.touched">
+        <div class="msg-error">Please enter a numeric value.</div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <button
+        mat-raised-button
+        type="submit"
+        color="accent"
+        id="btnCalculate"
+        class="mat-elevation-z8"
+        [disabled]="!calculatorForm.valid"
+      >
+        Calculate
+      </button>
+    </form>
+    <br />
   </mat-card>
   <!-- right card -->
   <mat-card class="mat-card mat-elevation-z8">
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
-      voluptas dolor, blanditiis nam aspernatur eaque facilis asperiores odit
-      rem! Placeat blanditiis, illo quia harum libero adipisci illum facere
-      labore autem!
-    </p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
-      voluptas dolor, blanditiis nam aspernatur eaque facilis asperiores odit
-      rem! Placeat blanditiis, illo quia harum libero adipisci illum facere
-      labore autem!
-    </p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
-      voluptas dolor, blanditiis nam aspernatur eaque facilis asperiores odit
-      rem! Placeat blanditiis, illo quia harum libero adipisci illum facere
-      labore autem!
-    </p>
+    <div class="center">
+      <br />
+      <br />
+      <h2>Monthly Payment</h2>
+      <h2 class="accent">{{ fixedPayment }}</h2>
+      <br />
+      <br />
+      <h2>Interest Paid:</h2>
+      <h2 class="accent">{{ totalInterest }}</h2>
+    </div>
   </mat-card>
 </mat-card-content>
